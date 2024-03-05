@@ -20,6 +20,8 @@ class BloomFilter:
         return True
 
 def bloom_join(list1, list2):
+    # bloom join is a faster unsafe version of semi join
+    # it creates a bit vector to each data-set, send it back and forth and filter the commen data
     bloom_filter = BloomFilter(len(list1), 0.05)  # Adjust the false positive rate as needed
     for item in list1:
         bloom_filter.add(item)
